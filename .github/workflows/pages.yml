@@ -1,0 +1,65 @@
+name: pages build and deployment
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install
+        run: npm ci
+
+      - name: Build Angular
+        run: npx ng build --configuration=production --base-href "/job-seeker/"
+
+      - name: Resolve build dir
+        id: out
+        run: |
+          if [ -d dist/job-seeker/browser ]; then
+            echo "DIR=dist/job-seeker/browser" >> $GITHUB_OUTPUT
+          else
+            echo "DIR=dist/job-seeker" >> $GITHUB_OUTPUT
+          fi
+
+      - name: SPA 404
+        run: cp "${{ steps.out.outputs.DIR }}/index.html" "${{ steps.out.outputs.DIR }}/404.html"
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: ${{ steps.out.outputs.DIR }}
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download built site
+        uses: actions/download-artifact@v4
+        with:
+          name: site
+          path: out
+
+      - name: Publish to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: out
+          publish_branch: gh-pages
+          enable_jekyll: false
