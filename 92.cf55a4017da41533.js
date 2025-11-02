@@ -1,0 +1,1 @@
+(self.webpackChunkjobSeeker=self.webpackChunkjobSeeker||[]).push([[92],{92:(c,t,e)=>{e.r(t),e.d(t,{AppComponent:()=>p});var o=e(2950);let p=(()=>{class n{title="jobSeeker";static \u0275fac=function(a){return new(a||n)};static \u0275cmp=o.\u0275\u0275defineComponent({type:n,selectors:[["app-root"]],decls:0,vars:0,template:function(a,s){},encapsulation:2})}return n})()}}]);
