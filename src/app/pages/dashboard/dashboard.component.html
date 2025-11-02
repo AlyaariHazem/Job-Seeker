@@ -1,0 +1,223 @@
+<!-- Dashboard Container -->
+<div id="overview" class="tab-content active">
+  <div class="dashboard-header">
+    <h1 class="dashboard-title">مرحباً، {{ userData.data.user.first_name }}!</h1>
+    <div class="dashboard-actions">
+      <a routerLink="/jobs" class="btn btn-primary">البحث عن وظائف</a>
+      <a routerLink="/jobseeker/cv-builder" class="btn btn-secondary"
+        >تحديث السيرة الذاتية</a
+      >
+    </div>
+  </div>
+
+  <!-- Stats Grid -->
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-header">
+        <span class="stat-title">إجمالي الطلبات</span>
+        <span class="stat-icon">📝</span>
+      </div>
+      <div class="stat-value">12</div>
+      <div class="stat-change">+3 هذا الأسبوع</div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-header">
+        <span class="stat-title">قيد المراجعة</span>
+        <span class="stat-icon">⏳</span>
+      </div>
+      <div class="stat-value">5</div>
+      <div class="stat-change">+2 جديدة</div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-header">
+        <span class="stat-title">مقابلات مجدولة</span>
+        <span class="stat-icon">🗓️</span>
+      </div>
+      <div class="stat-value">2</div>
+      <div class="stat-change">هذا الأسبوع</div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-header">
+        <span class="stat-title">الوظائف المحفوظة</span>
+        <span class="stat-icon">💾</span>
+      </div>
+      <div class="stat-value">8</div>
+      <div class="stat-change">+1 اليوم</div>
+    </div>
+  </div>
+
+  <!-- Quick Actions -->
+  <div class="quick-actions">
+    <a href="search.html" class="quick-action-card">
+      <div class="quick-action-icon">🔍</div>
+      <h3 class="quick-action-title">البحث عن وظائف</h3>
+      <p class="quick-action-desc">اكتشف آلاف الفرص الوظيفية</p>
+    </a>
+
+    <a href="cv-builder.html" class="quick-action-card">
+      <div class="quick-action-icon">📄</div>
+      <h3 class="quick-action-title">إنشاء السيرة الذاتية</h3>
+      <p class="quick-action-desc">أنشئ سيرة ذاتية احترافية</p>
+    </a>
+
+    <a href="companies.html" class="quick-action-card">
+      <div class="quick-action-icon">🏢</div>
+      <h3 class="quick-action-title">تصفح الشركات</h3>
+      <p class="quick-action-desc">اكتشف أفضل أماكن العمل</p>
+    </a>
+
+    <a href="salaries.html" class="quick-action-card">
+      <div class="quick-action-icon">💰</div>
+      <h3 class="quick-action-title">دليل الرواتب</h3>
+      <p class="quick-action-desc">تعرف على متوسط الرواتب</p>
+    </a>
+  </div>
+
+  <!-- Content Grid -->
+  <div class="content-grid">
+    <!-- Recent Applications -->
+    <div class="content-card">
+      <div class="card-header">
+        <h2 class="card-title">آخر الطلبات</h2>
+        <a
+          href="#applications"
+          class="card-action"
+          onclick="switchTab('applications')"
+          >عرض الكل</a
+        >
+      </div>
+
+      <div class="application-item">
+        <img
+          src="images/company-logo-1.jpg"
+          alt="شعار الشركة"
+          class="application-logo"
+        />
+        <div class="application-info">
+          <h4 class="application-title">مطور تطبيقات الويب الأمامية</h4>
+          <p class="application-company">شركة التقنيات المتقدمة</p>
+          <div class="application-meta">
+            <span>تقدمت منذ يومين</span>
+            <span>صنعاء</span>
+          </div>
+        </div>
+        <span class="application-status status-pending">قيد المراجعة</span>
+      </div>
+
+      <div class="application-item">
+        <img
+          src="images/company-logo-2.jpg"
+          alt="شعار الشركة"
+          class="application-logo"
+        />
+        <div class="application-info">
+          <h4 class="application-title">مطور تطبيقات الجوال</h4>
+          <p class="application-company">استوديو الابتكار للتطبيقات</p>
+          <div class="application-meta">
+            <span>تقدمت منذ 3 أيام</span>
+            <span>صنعاء</span>
+          </div>
+        </div>
+        <span class="application-status status-reviewed">تمت المراجعة</span>
+      </div>
+
+      <div class="application-item">
+        <img
+          src="images/company-logo-3.jpg"
+          alt="شعار الشركة"
+          class="application-logo"
+        />
+        <div class="application-info">
+          <h4 class="application-title">مطور Full Stack</h4>
+          <p class="application-company">شركة الحلول الرقمية</p>
+          <div class="application-meta">
+            <span>تقدمت منذ أسبوع</span>
+            <span>صنعاء</span>
+          </div>
+        </div>
+        <span class="application-status status-accepted">مقبول</span>
+      </div>
+    </div>
+
+    <!-- Saved Jobs -->
+    <div class="content-card">
+      <div class="card-header">
+        <h2 class="card-title">الوظائف المحفوظة</h2>
+        <a
+          href="#saved-jobs"
+          class="card-action"
+          onclick="switchTab('saved-jobs')"
+          >عرض الكل</a
+        >
+      </div>
+
+      <div class="saved-job-item">
+        <img
+          src="images/company-logo-4.jpg"
+          alt="شعار الشركة"
+          class="saved-job-logo"
+        />
+        <div class="saved-job-info">
+          <h4 class="saved-job-title">مطور WordPress</h4>
+          <p class="saved-job-company">وكالة التسويق الرقمي</p>
+          <p class="saved-job-meta">600-900 ريال • صنعاء</p>
+        </div>
+      </div>
+
+      <div class="saved-job-item">
+        <img
+          src="images/company-logo-1.jpg"
+          alt="شعار الشركة"
+          class="saved-job-logo"
+        />
+        <div class="saved-job-info">
+          <h4 class="saved-job-title">مطور ألعاب Unity</h4>
+          <p class="saved-job-company">استوديو الألعاب الإبداعي</p>
+          <p class="saved-job-meta">900-1300 ريال • صنعاء</p>
+        </div>
+      </div>
+
+      <div class="saved-job-item">
+        <img
+          src="images/company-logo-2.png"
+          alt="شعار الشركة"
+          class="saved-job-logo"
+        />
+        <div class="saved-job-info">
+          <h4 class="saved-job-title">مطور React Native</h4>
+          <p class="saved-job-company">شركة التطبيقات الذكية</p>
+          <p class="saved-job-meta">1100-1600 ريال • عدن</p>
+        </div>
+      </div>
+
+      <div class="saved-job-item">
+        <img
+          src="images/company-logo-3.jpg"
+          alt="شعار الشركة"
+          class="saved-job-logo"
+        />
+        <div class="saved-job-info">
+          <h4 class="saved-job-title">مطور Python</h4>
+          <p class="saved-job-company">مؤسسة البيانات الذكية</p>
+          <p class="saved-job-meta">1000-1400 ريال • عمل عن بُعد</p>
+        </div>
+      </div>
+
+      <div class="saved-job-item">
+        <img
+          src="images/company-logo-4.jpg"
+          alt="شعار الشركة"
+          class="saved-job-logo"
+        />
+        <div class="saved-job-info">
+          <h4 class="saved-job-title">مطور Laravel</h4>
+          <p class="saved-job-company">شركة الويب المتقدمة</p>
+          <p class="saved-job-meta">800-1200 ريال • تعز</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

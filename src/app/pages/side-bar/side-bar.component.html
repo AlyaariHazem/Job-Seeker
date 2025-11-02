@@ -1,0 +1,133 @@
+<aside class="dashboard-sidebar">
+  <div class="sidebar-profile">
+    <label class="avatar-uploader">
+      <img
+        [src]="previewUrl || toAbsolute(userPicture) || 'images/candidate-3.jpg'"
+        class="profile-avatar"
+      />
+      <input type="file" accept="image/*" (change)="onAvatarChange($event)" />
+      <span class="edit-badge">تغيير الصورة</span>
+    </label>
+
+    <h3 class="profile-name">
+      {{ userData?.data?.user?.first_name }} {{ userData?.data?.user?.last_name
+      }}
+    </h3>
+    <p class="profile-title">مطور برمجيات</p>
+
+    <div class="avatar-actions" *ngIf="selectedFile">
+      <button
+        class="btn btn-primary"
+        (click)="saveAvatar()"
+        [disabled]="saving"
+      >
+        حفظ الصورة
+      </button>
+      <button
+        class="btn btn-secondary"
+        (click)="cancelAvatar()"
+        [disabled]="saving"
+      >
+        إلغاء
+      </button>
+    </div>
+    <div class="profile-completion">
+      <div class="profile-progress"></div>
+      <p class="profile-progress-text">75% مكتمل</p>
+    </div>
+
+    <a
+      routerLink="/jobseeker/profile"
+      routerLinkActive="active"
+      class="btn btn-small btn-primary"
+      style="width: 100%"
+    >
+      تحديث الملف الشخصي
+    </a>
+  </div>
+
+  <nav>
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+        <a
+          routerLink="/jobseeker/dashboard"
+          routerLinkActive="active"
+          class="sidebar-nav-link"
+          data-tab="overview"
+        >
+          <span class="nav-icon">📊</span>
+          نظرة عامة
+        </a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a
+          routerLink="/jobseeker/applications"
+          routerLinkActive="active"
+          class="sidebar-nav-link"
+          data-tab="applications"
+        >
+          <span class="nav-icon">📝</span>
+          طلباتي
+        </a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a
+          routerLink="/jobseeker/saved-jobs"
+          routerLinkActive="active"
+          class="sidebar-nav-link"
+          data-tab="saved-jobs"
+        >
+          <span class="nav-icon">💾</span>
+          الوظائف المحفوظة
+        </a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a
+          routerLink="/jobseeker/profile"
+          routerLinkActive="active"
+          class="sidebar-nav-link"
+          data-tab="profile"
+        >
+          <span class="nav-icon">👤</span>
+          الملف الشخصي
+        </a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a
+          routerLink="/jobseeker/cv"
+          routerLinkActive="active"
+          class="sidebar-nav-link"
+          routerLinkActive="active"
+          data-tab="cv"
+        >
+          <span class="nav-icon">📄</span>
+          السيرة الذاتية
+        </a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a
+          routerLink="/jobseeker/alerts"
+          routerLinkActive="active"
+          class="sidebar-nav-link"
+          routerLinkActive="active"
+          data-tab="alerts"
+        >
+          <span class="nav-icon">🔔</span>
+          تنبيهات الوظائف
+        </a>
+      </li>
+      <li class="sidebar-nav-item">
+        <a
+          routerLink="/jobseeker/settings"
+          routerLinkActive="active"
+          class="sidebar-nav-link"
+          routerLinkActive="active"
+          data-tab="settings"
+        >
+          <span class="nav-icon">⚙️</span>
+          الإعدادات
+        </a>
+      </li>
+    </ul>
+  </nav>
+</aside>
